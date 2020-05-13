@@ -4,11 +4,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
+const config = require('./config/keys')
+
 const { User } = require('./models/user');
 
 
-mongoose.connect(
-    "mongodb+srv://umrzoq:U8577840@cluster0-zuhtv.mongodb.net/test?retryWrites=true&w=majority",
+mongoose.connect(config.mongoURI,
     { useNewUrlParser: true }).then(() => console.log("DB connected"))
                                 .catch((err) => console.log(err));
 
